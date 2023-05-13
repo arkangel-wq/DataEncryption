@@ -1,0 +1,85 @@
+﻿@page "/"
+@layout LoginLayout
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mr-b">
+            <img class="img-header mt-2" src="/img/logo_poblana_segura_superior.svg" alt="Logo Poblana Segura" />
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-12 d-flex flex-column align-items-center">
+            <div class="container-controls position-relative">
+                <label for="email" class="text-morado">Correo Electronico</label>
+                <input class="form-control input-text" type="text" name="email" />
+            </div>
+        </div>
+
+
+        <div class="col-12 d-flex flex-column align-items-center">
+            <div class="container-controls position-relative">
+                <label for="password" class="text-morado">Contraseña</label>
+                <input class="form-control input-text" type="password" name="password" />
+                <div class="eye-password cursor-pointer text-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" color="#513B62" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    </svg>
+
+                    @*<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" color="gray" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
+                    <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                    <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
+                    </svg>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 d-flex flex-column align-items-center">
+            <div class="container-controls">
+                <button type="button" class="btn boton-send" @onclick="login">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row position-relative">
+        <div class="col-12 text-center mr-f">
+            <div class="d-flex justify-content-evenly">
+                <img src="/img/gob_puebla.svg" alt="Logo Poblana Segura" />
+                <img src="/img/logo_puebla_nuevo.svg" alt="Logo Poblana Segura" />
+            </div>
+
+        </div>
+
+        <MessageComponent Mensaje="@Mensaje" ShowInfo="ShowInfoUsuario" Imagen="@Imagen" />
+    </div>
+
+
+</div>
+
+
+
+@code {
+    bool ShowInfoUsuario = false;
+    string Mensaje = "";
+    string Imagen = "";
+    @inject NavigationManager Navigation
+
+
+    private void OpenCloseInfoUsuario()
+    {
+        Mensaje = "Si no recuerda su informacion,favor de comunicarse con el administrador de su ambiente en CEPO.";
+        Imagen = "/img/informacion.png";
+        if (ShowInfoUsuario) ShowInfoUsuario = false;
+        else ShowInfoUsuario = true;
+
+    }
+
+    private async void login()
+    {
+        OpenCloseInfoUsuario();
+        await Task.Delay(2000);
+        Navigation.NavigateTo("/Medidas_Proteccion");
+    }
+}

@@ -1,0 +1,46 @@
+﻿<div class="modal @showModal">
+    <div class="modal-dialog"> 
+      <div class="modal modal-content" >
+        
+        <div class="headerButton">
+          <h5 class="modal-title" >Medida de proteccion solicitada</h5>
+          <button type="button" class="buttonClose">
+                    <span class="closeFont" aria-hidden="true" @onclick="Close">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modalContent">
+          <div class="modalBody">
+             <p class="question">@Question</p>
+             <label class="colorAnswer">@Answer</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+@code {
+
+    [Parameter]
+    public bool ShowModal { get; set; }
+
+    [Parameter]
+    public string Question { get; set; }
+
+    [Parameter]
+    public string Answer { get; set; }
+
+    private string showModal = "d-node";
+
+    protected override void OnParametersSet()
+    {
+
+        if (ShowModal) showModal = "d-flex";
+        else showModal = "d-none";
+    }
+
+    private void Close()
+    {
+        showModal = "d-none";
+    }
+}

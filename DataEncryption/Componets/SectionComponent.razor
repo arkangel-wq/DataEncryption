@@ -1,0 +1,8 @@
+﻿<div class="bg-section p-2 w-100 mt-2 " style="height: calc(100vh - 20rem)">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

@@ -1,17 +1,42 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<div class="container-fluid bg-menu">
+    <header class="row align-items-center py-2 px-2 bg-main">
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        <div class="d-flex justify-content-around mr-t-page">
+            <div class="d-flex justify-content-start mr-t-page">
+                <img src="./img/logo_poblana_segura_superior.svg" />
+            </div>
+
+            <div class="mr-f-page">
+                <label class="label-avatar">Hola,Angel</label>
+                <img class="cursor-pointer circle-avatar" @onclick="OpenComponent" src="./img/perfil.png"/>
+            </div>
         </div>
+        <LogoutComponent ShowInfo="ShowInfoUsuario" />
 
-        <article class="content px-4">
+    </header>
+
+    <section class="row border-rounded-bottom bg-main height-main">
+        <main class="col m-2 py-3 border-rounded">
             @Body
-        </article>
-    </main>
+        </main>
+    </section>
+
+    <footer class="row p-2">
+        <div class="col">
+            <NavMenu />
+        </div>
+    </footer>
 </div>
+@code{
+
+    bool ShowInfoUsuario = false;
+
+    private void OpenComponent(){
+
+        if (ShowInfoUsuario) ShowInfoUsuario = false;
+        else ShowInfoUsuario = true;
+
+    }
+}

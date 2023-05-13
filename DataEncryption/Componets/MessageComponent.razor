@@ -1,0 +1,42 @@
+﻿<div class="content-info-user p-2  @hideShowInfo">
+    <div class="d-flex flex-column align-items-center gap-1">
+        <div class="text-light text-center">
+            <div class="d-flex">
+                <div class="p-2 w-100">
+                    <h6 class="text-message">@Mensaje</h6>
+                </div>
+                <div class="p-2 flex-shrink-1">
+                    <img src="@Imagen" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public bool ShowInfo { get; set; }
+
+    [Parameter]
+    public string Mensaje { get; set; }
+
+    [Parameter]
+    public string Imagen { get; set; }
+
+    string hideShowInfo = string.Empty;
+
+    protected override void OnParametersSet()
+    {
+        if (ShowInfo)
+        {
+            hideShowInfo = "d-block";
+        }
+        else Close();
+    }
+
+    private void Close()
+    {
+        hideShowInfo = "d-none";
+    }
+}
