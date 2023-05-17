@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEncryption", "DataEncryption\DataEncryption.csproj", "{FC6B5681-4925-4FBB-A84E-06039606E0C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataEncryption", "DataEncryption\DataEncryption.csproj", "{FC6B5681-4925-4FBB-A84E-06039606E0C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{CC9E807C-4D35-4201-B661-4144AA4503EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C7E227A5-C522-4D40-9536-254ED187796D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Core.MVVM", "Core.MVVM\Core.MVVM.shproj", "{5591E3A9-D337-482F-B2FF-23827258E542}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataEncryption.Core", "DataEncryption.Core\DataEncryption.Core.shproj", "{56C300F0-C3F0-486A-8CC2-2B39BC9903E2}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataEncryption.Models", "DataEncryption.Models\DataEncryption.Models.shproj", "{D01FDCFE-52A0-4383-8F5E-996F3378ADE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,7 +29,21 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC6B5681-4925-4FBB-A84E-06039606E0C0} = {CC9E807C-4D35-4201-B661-4144AA4503EE}
+		{5591E3A9-D337-482F-B2FF-23827258E542} = {C7E227A5-C522-4D40-9536-254ED187796D}
+		{56C300F0-C3F0-486A-8CC2-2B39BC9903E2} = {C7E227A5-C522-4D40-9536-254ED187796D}
+		{D01FDCFE-52A0-4383-8F5E-996F3378ADE4} = {C7E227A5-C522-4D40-9536-254ED187796D}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF8F87C5-A101-4B87-8439-BD1106BA3948}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Core.MVVM\Core.MVVM.projitems*{5591e3a9-d337-482f-b2ff-23827258e542}*SharedItemsImports = 13
+		DataEncryption.Core\DataEncryption.Core.projitems*{56c300f0-c3f0-486a-8cc2-2b39bc9903e2}*SharedItemsImports = 13
+		DataEncryption.Models\DataEncryption.Models.projitems*{d01fdcfe-52a0-4383-8f5e-996f3378ade4}*SharedItemsImports = 13
+		Core.MVVM\Core.MVVM.projitems*{fc6b5681-4925-4fbb-a84e-06039606e0c0}*SharedItemsImports = 5
+		DataEncryption.Core\DataEncryption.Core.projitems*{fc6b5681-4925-4fbb-a84e-06039606e0c0}*SharedItemsImports = 5
+		DataEncryption.Models\DataEncryption.Models.projitems*{fc6b5681-4925-4fbb-a84e-06039606e0c0}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

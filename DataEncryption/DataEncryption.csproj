@@ -16,4 +16,10 @@
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 
+  <Import Project="..\Core.MVVM\Core.MVVM.projitems" Label="Shared" />
+
+  <Import Project="..\DataEncryption.Core\DataEncryption.Core.projitems" Label="Shared" />
+
+  <Import Project="..\DataEncryption.Models\DataEncryption.Models.projitems" Label="Shared" />
+
 </Project>
