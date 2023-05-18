@@ -9,12 +9,10 @@
     <Import_RootNamespace>DataEncryption.Core</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)BL\" />
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)ApiClient\DataServicesDesencryption.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ApiClient\DataServicesEncryption.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ApiClient\WebApiClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\DataBL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ApiHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DataVM.cs" />
   </ItemGroup>
 </Project>

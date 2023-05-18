@@ -6,6 +6,8 @@ namespace DataEncryption.Models
 {
     public class Data
     {
-        public string URL { get; set; }
+        public string UrlApis { get; set; }
+        public string UrlServidorVM { get; set; }
+        public string Conversion { get; set; }
     }
 }

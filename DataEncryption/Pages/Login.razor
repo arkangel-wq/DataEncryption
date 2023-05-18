@@ -9,6 +9,14 @@
         </div>
 
     </div>
+
+    <div class="row">
+        <div class="col-12 d-flex flex-column align-items-center">
+            <input type="text" name="text" class="input" pattern="\d+" placeholder="url Apis Publicas" @bind-value="@VM.DataSelected.UrlApis">
+            <button class="btn-donate" @onclick="() => VM.ReadUrlCommand.ExecuteAsync()"> Convertir</button>
+        </div>
+
+    </div>
 <div class="row">
 
 </div>
@@ -89,29 +97,3 @@
     </div>
 
 </div>
-
-
-
-@code {
-    bool ShowInfoUsuario = false;
-    string Mensaje = "";
-    string Imagen = "";
-    @inject NavigationManager Navigation
-
-
-    private void OpenCloseInfoUsuario()
-    {
-        Mensaje = "Si no recuerda su informacion,favor de comunicarse con el administrador de su ambiente en CEPO.";
-        Imagen = "/img/informacion.png";
-        if (ShowInfoUsuario) ShowInfoUsuario = false;
-        else ShowInfoUsuario = true;
-
-    }
-
-    private async void login()
-    {
-        OpenCloseInfoUsuario();
-        await Task.Delay(2000);
-        Navigation.NavigateTo("/Medidas_Proteccion");
-    }
-}

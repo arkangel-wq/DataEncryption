@@ -9,11 +9,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{CC9E807C-4D3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C7E227A5-C522-4D40-9536-254ED187796D}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Core.MVVM", "Core.MVVM\Core.MVVM.shproj", "{5591E3A9-D337-482F-B2FF-23827258E542}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataEncryption.Core", "DataEncryption.Core\DataEncryption.Core.shproj", "{56C300F0-C3F0-486A-8CC2-2B39BC9903E2}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataEncryption.Models", "DataEncryption.Models\DataEncryption.Models.shproj", "{D01FDCFE-52A0-4383-8F5E-996F3378ADE4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Core.MVVM", "Core.MVVM\Core.MVVM.shproj", "{5938EE23-E6F1-40A7-9F5F-93E65F1B26CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6399DBCD-2C93-4D02-8B87-B0216180569C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,16 +36,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC6B5681-4925-4FBB-A84E-06039606E0C0} = {CC9E807C-4D35-4201-B661-4144AA4503EE}
-		{5591E3A9-D337-482F-B2FF-23827258E542} = {C7E227A5-C522-4D40-9536-254ED187796D}
 		{56C300F0-C3F0-486A-8CC2-2B39BC9903E2} = {C7E227A5-C522-4D40-9536-254ED187796D}
 		{D01FDCFE-52A0-4383-8F5E-996F3378ADE4} = {C7E227A5-C522-4D40-9536-254ED187796D}
+		{5938EE23-E6F1-40A7-9F5F-93E65F1B26CE} = {C7E227A5-C522-4D40-9536-254ED187796D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF8F87C5-A101-4B87-8439-BD1106BA3948}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Core.MVVM\Core.MVVM.projitems*{5591e3a9-d337-482f-b2ff-23827258e542}*SharedItemsImports = 13
 		DataEncryption.Core\DataEncryption.Core.projitems*{56c300f0-c3f0-486a-8cc2-2b39bc9903e2}*SharedItemsImports = 13
+		Core.MVVM\Core.MVVM.projitems*{5938ee23-e6f1-40a7-9f5f-93e65f1b26ce}*SharedItemsImports = 13
 		DataEncryption.Models\DataEncryption.Models.projitems*{d01fdcfe-52a0-4383-8f5e-996f3378ade4}*SharedItemsImports = 13
 		Core.MVVM\Core.MVVM.projitems*{fc6b5681-4925-4fbb-a84e-06039606e0c0}*SharedItemsImports = 5
 		DataEncryption.Core\DataEncryption.Core.projitems*{fc6b5681-4925-4fbb-a84e-06039606e0c0}*SharedItemsImports = 5
