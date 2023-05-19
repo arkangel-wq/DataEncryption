@@ -42,18 +42,81 @@ namespace DataEncryption.Core.ViewModels
         {
             get => readUrlCommand ?? (readUrlCommand = new RelayCommand(async () =>
             {
-                Helpers.ApiHelper.Instance.UrlApisPublicas = DataSelected.UrlApis;
-                Console.WriteLine(Helpers.ApiHelper.Instance.UrlApisPublicas) ;
+                var inicio = "https://";
+                if (DataSelected.UrlApis == null)
+                {
+                    Mensaje = "Ingresa Url Apis publicas 😒";
+                    VerMensaje = true;
+                    await Task.Delay(TimeSpan.FromSeconds(3));
+                    verMensaje = false;
+                }
+                else
+                {
+                    if (DataSelected.UrlApis.StartsWith(inicio))
+                    {
+                        Helpers.ApiHelper.Instance.UrlApisPublicas = DataSelected.UrlApis;
+                        Console.WriteLine(Helpers.ApiHelper.Instance.UrlApisPublicas);
+                        Mensaje = "Se establecio correctamente la url de las Apis publicas ❤️";
+                        VerMensaje = true;
+                        await Task.Delay(TimeSpan.FromSeconds(3));
+                        verMensaje = false;
+                    }
+                    else
+                    {
+                        Mensaje = "La Url de las Apis Publicas no es valida";
+                        VerMensaje = true;
+                        await Task.Delay(TimeSpan.FromSeconds(3));
+                        verMensaje = false;
+                    }
+                    
+                }
             }));
         }
+
         RelayCommand encryptionCommand = null;
         public RelayCommand EncryptionCommand
         {
             get => encryptionCommand ?? (encryptionCommand = new RelayCommand(async () =>
             {
+                var inicio = "rtmp";
 
-               var res = await bl.GetEncriptarAsync(DataSelected.UrlServidorVM);
-                MostrarEncryptacion = res.Mensaje;
+                if (Helpers.ApiHelper.Instance.UrlApisPublicas == null)
+                {
+                    Mensaje = "Ingresa Url Apis publicas 😒";
+                    VerMensaje = true;
+                    await Task.Delay(TimeSpan.FromSeconds(3));
+                    verMensaje = false;
+                }
+                else
+                {
+                    if (DataSelected.UrlServidorVM == null)
+                    {
+                        Mensaje = "Ingresa la Url del servidor de streaming";
+                        VerMensaje = true;
+                        await Task.Delay(TimeSpan.FromSeconds(3));
+                        verMensaje = false;
+                    }
+                    else
+                    {
+                        if (DataSelected.UrlServidorVM.StartsWith(inicio))
+                        {
+                            var res = await bl.GetEncriptarAsync(DataSelected.UrlServidorVM);
+                            MostrarEncryptacion = res.Mensaje;
+                            Mensaje = "Encryptando la Url del servidor de streaming";
+                            VerMensaje = true;
+                            await Task.Delay(TimeSpan.FromSeconds(3));
+                            verMensaje = false;
+                        }
+                        else
+                        {
+                            Mensaje = "La Url del servidor de streaming no es valida";
+                            VerMensaje = true;
+                            await Task.Delay(TimeSpan.FromSeconds(3));
+                            verMensaje = false;
+                        }
+                    }
+                }
+
             }, () => { return true; }));
         }
 
@@ -62,9 +125,53 @@ namespace DataEncryption.Core.ViewModels
         {
             get => desencryptionCommand ?? (desencryptionCommand = new RelayCommand(async () =>
             {
+                try
+                {
+                    if (Helpers.ApiHelper.Instance.UrlApisPublicas == null)
+                    {
+                        Mensaje = "Ingresa Url Apis publicas 😒";
+                        VerMensaje = true;
+                        await Task.Delay(TimeSpan.FromSeconds(3));
+                        verMensaje = false;
+                    }
+                    else
+                    {
+                        if (DataSelected.DesencryptionKey == null)
+                        {
+                            Mensaje = "Ingresa cadena encryptada 😒";
+                            VerMensaje = true;
+                            await Task.Delay(TimeSpan.FromSeconds(3));
+                            verMensaje = false;
+                        }
+                        else
+                        {
+                            int longitud = DataSelected.DesencryptionKey.Length;
+                            int cadenavalida = 72;
 
-                var result = await bl.GetDesencriptarAsync(DataSelected.DesencryptionKey);
-                MostrarDesencryptacion = result.Mensaje;
+                            if (longitud == cadenavalida)
+                            {
+                                var result = await bl.GetDesencriptarAsync(DataSelected.DesencryptionKey);
+                                MostrarDesencryptacion = result.Mensaje;
+                                Mensaje = "Desencryptando la Url del servidor de streaming 😎";
+                                VerMensaje = true;
+                                await Task.Delay(TimeSpan.FromSeconds(3));
+                                verMensaje = false;
+                            }
+                            else
+                            {
+
+                                Mensaje = "La Cadena de encrytacion no es valida 🤷‍♂️";
+                                VerMensaje = true;
+                                await Task.Delay(TimeSpan.FromSeconds(3));
+                                verMensaje = false;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
 
             }, () => { return true; }));
         }

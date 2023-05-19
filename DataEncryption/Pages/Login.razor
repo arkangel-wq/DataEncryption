@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-12 d-flex flex-column align-items-center">
             <input type="text" name="text" class="input" pattern="\d+" placeholder="url Apis Publicas" @bind-value="@VM.DataSelected.UrlApis">
-            <button class="btn-donate" @onclick="login"> Convertir</button>
+            <button class="btn-donate" @onclick="() => VM.ReadUrlCommand.ExecuteAsync()"> Convertir</button>
         </div>
 
     </div>
@@ -93,7 +93,10 @@
             </div>
 
         </div>
-    </div>
-    <MessageComponent Mensaje="@Mensaje" ShowInfo="ShowInfoUsuario" Imagen="@Imagen" />
+    </div> 
+    @if (VM.VerMensaje)
+    {
+     <MessageComponent Mensaje="@VM.Mensaje" ShowInfo="VM.VerMensaje" />
+    }
 </div>
 
