@@ -8,11 +8,11 @@ namespace DataEncryption.Core.ApiClient
 {
     public class DataServicesEncryption : WebApiClient
     {
-        public DataServicesEncryption() : base($"Helpers.ApiHelper.Instance.UrlApisPublicas","api/Values/")
+        public DataServicesEncryption() : base(Helpers.ApiHelper.Instance.UrlApisPublicas,"api/Values/")
         { }
-        public async Task<(HttpStatusCode statusCode, string Mensaje)> GetEncriptar(Data data) =>
-        await CallPostAsync<Data, string>("Desencriptar", data);
-        public async Task<(HttpStatusCode statusCode, string Mensaje)> GetDesencriptar(Data data) =>
-       await CallPostAsync<Data, string>("Desencriptar", data);
+        public async Task<(HttpStatusCode statusCode, string Mensaje)> GetEncriptar(string data) =>
+        await CallPostAsync<string, string>("Encriptar", data);
+        public async Task<(HttpStatusCode statusCode, string Mensaje)> GetDesencriptar(string data) =>
+       await CallPostAsync<string, string>("Desencriptar", data);
     }
 }

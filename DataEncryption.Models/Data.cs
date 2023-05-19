@@ -8,6 +8,9 @@ namespace DataEncryption.Models
     {
         public string UrlApis { get; set; }
         public string UrlServidorVM { get; set; }
-        public string Conversion { get; set; }
+        public string EncryptacionResult { get; set; }
+        public string DesencryptionKey { get; set;}
+        public string DesencryptionResult { get; set;}
+        
     }
 }

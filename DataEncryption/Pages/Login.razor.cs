@@ -12,7 +12,10 @@ namespace DataEncryption.Pages
             {
                 switch (e.PropertyName)
                 {
-                    case "VerMensaje":
+                    case "MostrarEncryptacion":
+                        StateHasChanged();
+                        break;
+                    case "MostrarDesencryptacion":
                         StateHasChanged();
                         break;
                     default:

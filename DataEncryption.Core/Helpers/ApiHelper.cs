@@ -19,5 +19,8 @@ namespace DataEncryption.Core.Helpers
         /// </summary>
         private string urlApisPublicas;
         public string UrlApisPublicas { get => (urlApisPublicas); set => Set(ref urlApisPublicas, value); }
+
+        private string urlVM;
+        public string UrlVM { get => (urlVM); set => Set(ref urlVM, value); }
     }
 }

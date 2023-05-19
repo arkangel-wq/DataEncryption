@@ -40,16 +40,16 @@
                     </div>
                     <div class="card__content">
                         <div class="row mr-5 mt-2">
-                            <input type="text" name="text" class="input" pattern="\d+" placeholder="url">
+                            <input type="text" name="text" class="input" pattern="\d+" placeholder="url" @bind-value="@VM.DataSelected.UrlServidorVM">
                         </div>
                         <div class="row">
-                            <button class="btn-donate">
+                            <button class="btn-donate" @onclick="() => VM.EncryptionCommand.ExecuteAsync()">
                                 Convertir
                             </button>
                         </div>
                         <div class="row">
                             <label style="margin-top: 4rem; margin-left: 23rem;">Resultado</label>
-                            <input type="text" disabled="disabled" name="text" class="input" pattern="\d+" placeholder="Numbers only or shake">
+                            <input type="text" disabled="disabled" name="text" class="input" pattern="\d+" @bind-value="@VM.MostrarEncryptacion">
                         </div>
                     </div>
                 </div>
@@ -78,16 +78,16 @@
                     </div>
                     <div class="card__content">
                         <div class="row mr-5 mt-2">
-                            <input type="text" name="text" class="input" pattern="\d+" placeholder="url">
+                            <input type="text" name="text" class="input" pattern="\d+" placeholder="url" @bind-value="@VM.DataSelected.DesencryptionKey">
                         </div>
                         <div class="row">
-                            <button class="btn-donate">
+                            <button class="btn-donate" @onclick="() => VM.DesencryptionCommand.ExecuteAsync()">
                                 Convertir
-                            </button>
+                            </button >
                         </div>
                         <div class="row">
                             <label style="margin-top: 4rem; margin-left: 23rem;">Resultado</label>
-                            <input type="text" disabled="disabled" name="text" class="input" pattern="\d+" placeholder="Numbers only or shake">
+                            <input type="text" disabled="disabled" name="text" class="input" pattern="\d+" @bind-value="@VM.MostrarDesencryptacion">
                         </div>
                     </div>
                 </div>
