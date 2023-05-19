@@ -14,9 +14,6 @@ namespace DataEncryption.Core.Helpers
         /// </summary>
         public static ApiHelper Instance => instance ?? (instance = new ApiHelper());
 
-        /// <summary>
-        /// Obtiene el radio.
-        /// </summary>
         private string urlApisPublicas;
         public string UrlApisPublicas { get => (urlApisPublicas); set => Set(ref urlApisPublicas, value); }
 
