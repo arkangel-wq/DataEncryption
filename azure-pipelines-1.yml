@@ -26,7 +26,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: '$(SUSCRIPTION)'
+    azureSubscription: 'Dev Pregat (a7595bac-7d9c-4387-8f20-63211c820275)'
     appType: 'webApp'
     WebAppName: 'DataEncryptionApp'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
