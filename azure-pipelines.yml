@@ -48,7 +48,6 @@ stages:
           inputs:
              command: 'build'
              projects: '**/*.csproj'
-             workingDirectory: '--configuration $(BuildConfiguration)'
         - task: DotNetCoreCLI@2
           inputs:
             command: 'test'
