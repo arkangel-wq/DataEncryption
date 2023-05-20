@@ -33,14 +33,14 @@ stages:
         - task: DotNetCoreCLI@2
           inputs:
             command: 'restore'
-            projects: 'DataEncryption/DataEncryption.csproj'
+            projects: '**/*.csproj'
             feedsToUse: 'select'
             vstsFeed: 'af2e86fe-2cee-437d-9bab-6fb66e7a5fd2'
         
         - task: DotNetCoreCLI@2
           inputs:
              command: 'build'
-             projects: 'DataEncryption/DataEncryption.csproj'
+             projects: '**/*.csproj'
              workingDirectory: '--configuration $(BuildConfiguration)'
         - task: DotNetCoreCLI@2
           inputs:
