@@ -79,4 +79,3 @@ stages:
             appType: 'webApp'
             WebAppName: 'DataEncryptionApp'
             packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-            JSONFiles: 'wwwroot/settings.json'
