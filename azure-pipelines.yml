@@ -5,6 +5,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  buildConfiguration: 'Release'
+
 stages:
   - stage: Validation
     displayName: 'Compilacion proyecto iOS'
@@ -38,17 +41,17 @@ stages:
           inputs:
              command: 'build'
              projects: 'DataEncryption/DataEncryption.csproj'
-             workingDirectory: '$(BuildConfiguration)'
+             workingDirectory: '--configuration $(BuildConfiguration)'
         - task: DotNetCoreCLI@2
           inputs:
             command: 'test'
             projects: '**/*[Tt]ests/*.csproj'
-            workingDirectory: '$(BuildConfiguration)'
+            workingDirectory: '--configuration $(BuildConfiguration)'
         - task: DotNetCoreCLI@2
           inputs:
             command: 'publish'
             publishWebProjects: true
-            workingDirectory: '$(build.artifactstagingdirectory)'
+            workingDirectory: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
