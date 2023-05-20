@@ -52,7 +52,6 @@ stages:
           inputs:
             command: 'test'
             projects: '**/*[Tt]ests/*.csproj'
-            workingDirectory: '--configuration $(BuildConfiguration)'
         - task: DotNetCoreCLI@2
           inputs:
             command: 'publish'
