@@ -37,6 +37,11 @@ stages:
             feedsToUse: 'select'
             vstsFeed: 'af2e86fe-2cee-437d-9bab-6fb66e7a5fd2'
         
+        - task: UseDotNet@2
+          inputs:
+            packageType: 'sdk'
+            version: '7.x'
+            includePreviewVersions: true
         - task: DotNetCoreCLI@2
           inputs:
              command: 'build'
