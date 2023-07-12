@@ -28,7 +28,10 @@ namespace DataEncryption.Pages
                         break;
                 }
             };
-        }  
+        }
+
+        public void GetValueInput(string valor) => VM.DataSelected.UrlServidorVM = valor;
+        public void GetValueDesenc(string valor) => VM.DataSelected.DesencryptionKey = valor;
     }
 }
 
