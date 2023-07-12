@@ -12,15 +12,23 @@
     --blanco: #ffffff;
 }
 
-html, body {
+html {
+    box-sizing: border-box; /* Respeta el width definido */
+    font-size: 62.5%; /* 1rem= 10px*/
+}
+
+body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #2c2c2c;
-    font-size: 62.5%; /** 1REM = 10pX **/
     background-image: url(../img/fondopuntos.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top left;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 .container {
@@ -363,8 +371,8 @@ label {
     }
 
 .card {
-    width: 43vw;
-    height: 54vh;
+    /*width: 43vw;
+    height: 54vh;*/
     margin: 0 auto;
     background-color: #F8FBFE;
     border-radius: 8px;
@@ -403,13 +411,11 @@ label {
 }
 
 .input {
-    width: 50rem;
-    margin-left: 5rem;
-    margin-top:0.5rem;
-    font-size: 16px;
-    padding: 12px;
+    width: 70%;
+    font-size: 1.6rem;
+    padding: 1.2rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     box-shadow: 2px 2px 7px 0 rgb(0, 0, 0, 0.2);
     outline: none;
     color: dimgray;
@@ -444,8 +450,6 @@ label {
     --btn-bg-color: hsla(360 100% 100% / 1);
     --radii: 0.5em;
     width: 30rem;
-    margin-left: 15rem;
-    margin-top: 2rem;
     cursor: pointer;
     padding: 0.9em 1.4em;
     min-width: 120px;

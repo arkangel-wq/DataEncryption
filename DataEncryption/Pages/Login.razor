@@ -1,102 +1,33 @@
 ﻿@page "/"
 @layout LoginLayout
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 text-center mr-b">
-            <img class="img-header mt-2" src="/img/azure-devops.svg" alt="Logo Poblana Segura" />
-            <label>Devops</label>
-        </div>
-
+<div class="row">
+    <div class="col-12 d-flex flex-column align-items-center gap-2">
+        <img class="img-header mt-2" src="/img/azure-devops.svg" alt="Logo Poblana Segura" />
+        <label>Devops</label>
     </div>
 
-    <div class="row">
-        <div class="col-12 d-flex flex-column align-items-center">
-            <input type="text" name="text" class="input" pattern="\d+" placeholder="url Apis Publicas" @bind-value="@VM.DataSelected.UrlApis">
-            <button class="btn-donate" @onclick="() => VM.ReadUrlCommand.ExecuteAsync()"> Convertir</button>
-        </div>
-
+    <div class="col-12 d-flex flex-column align-items-center gap-3 mt-4">
+        <input type="text" name="text" class="input" pattern="\d+" placeholder="url Apis Publicas" @bind-value="@VM.DataSelected.UrlApis">
+        <button class="btn-donate" @onclick="() => VM.ReadUrlCommand.ExecuteAsync()"> Convertir</button>
     </div>
-    <div class="row">
-    </div>
-    <div class="row">
-        <div class="col-4 d-flex flex-column align-items-center">
-            <div class="container-controls position-relative">
-                <div class="card">
-                    <div class="tools">
-                        <div class="circle">
-                            <span class="red box"></span>
-                        </div>
-                        <div class="circle">
-                            <span class="yellow box"></span>
-                        </div>
-                        <div class="circle">
-                            <span class="green box"></span>
-                        </div>
-                    </div>
-                    <div class="card-header" style="font-size:15px;">
-                        Encriptacion URL Streaming
-                    </div>
-                    <div class="card__content">
-                        <div class="row mr-5 mt-2">
-                            <input type="text" name="text"  class="input" pattern="\d+" placeholder="url" @bind-value="@VM.DataSelected.UrlServidorVM">
-                        </div>
-                        <div class="row">
-                            <button class="btn-donate" @onclick="() => VM.EncryptionCommand.ExecuteAsync()">
-                                Convertir
-                            </button>
-                        </div>
-                        <div class="row">
-                            <label style="margin-top: 4rem; margin-left: 23rem;">Resultado</label>
-                            <input type="text" disabled name="text" class="input" pattern="\d+" @bind-value="@VM.MostrarEncryptacion">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-2 d-flex flex-column align-items-center">
-            <div class="container-controls position-relative">
-            </div>
-        </div>
-        <div class="col-5 d-flex flex-column align-items-center">
-            <div class="container-controls position-relative">
-                <div class="card">
-                    <div class="tools">
-                        <div class="circle">
-                            <span class="red box"></span>
-                        </div>
-                        <div class="circle">
-                            <span class="yellow box"></span>
-                        </div>
-                        <div class="circle">
-                            <span class="green box"></span>
-                        </div>
-                    </div>
-                    <div class="card-header" style="font-size:15px;">
-                        Desencriptacion URL Streaming
-                    </div>
-                    <div class="card__content">
-                        <div class="row mr-5 mt-2">
-                            <input type="text" name="text" class="input" pattern="\d+" placeholder="url" @bind-value="@VM.DataSelected.DesencryptionKey">
-                        </div>
-                        <div class="row">
-                            <button class="btn-donate" @onclick="() => VM.DesencryptionCommand.ExecuteAsync()">
-                                Convertir
-                            </button>
-                        </div>
-                        <div class="row">
-                            <label style="margin-top: 4rem; margin-left: 23rem;">Resultado</label>
-                            <input type="text" disabled="disabled" name="text" class="input" pattern="\d+" @bind-value="@VM.MostrarDesencryptacion">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> 
-    @if (VM.VerMensaje)
-    {
-     <MessageComponent Mensaje="@VM.Mensaje" ShowInfo="VM.VerMensaje" />
-    }
 </div>
+
+<div class="row mt-5">
+    <div class="col-12 col-md-6 my-3">
+        <CardComponent TituloCard="Encriptacion URL Streaming" ValorInput="@VM.DataSelected.UrlServidorVM" 
+                        ActionEvt="VM.EncryptionCommand.ExecuteAsync" GetValueInputEvt="GetValueInput"
+                        ValorResultado="@VM.MostrarEncryptacion"/>
+    </div>
+    <div class="col-12 col-md-6 my-3">
+        <CardComponent TituloCard="Desencriptacion URL Streaming" ValorInput="@VM.DataSelected.DesencryptionKey"
+                       ActionEvt="VM.DesencryptionCommand.ExecuteAsync" GetValueInputEvt="GetValueDesenc"
+                       ValorResultado="@VM.MostrarDesencryptacion" />
+    </div>
+</div>
+
+@if (VM.VerMensaje)
+{
+    <MessageComponent Mensaje="@VM.Mensaje" ShowInfo="VM.VerMensaje" />
+}
 

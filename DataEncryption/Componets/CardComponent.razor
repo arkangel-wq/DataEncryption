@@ -1,0 +1,45 @@
+﻿<div class="card">
+    <div class="tools">
+        <div class="circle">
+            <span class="red box"></span>
+        </div>
+        <div class="circle">
+            <span class="yellow box"></span>
+        </div>
+        <div class="circle">
+            <span class="green box"></span>
+        </div>
+    </div>
+    <div class="card-header text-center">
+        <h4>@TituloCard</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center gap-4">
+                <input type="text" name="text" value="@ValorInput" class="input" pattern="\d+" placeholder="url" @oninput="ValueInputChange" >
+                <button class="btn-donate" @onclick="() => ActionEvt.InvokeAsync()">
+                    Convertir
+                </button>
+            </div>
+            <div class="col-12 my-5 d-flex flex-column justify-content-center align-items-center gap-4">
+                <label>Resultado</label>
+                <input type="text" disabled name="text" value="@ValorResultado" class="input" pattern="\d+">
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string TituloCard { get; set; }
+    [Parameter] public string ValorInput { get; set; }
+    [Parameter] public string ValorResultado { get; set; }
+    [Parameter] public EventCallback ActionEvt { get; set; }
+    [Parameter] public EventCallback<string> GetValueInputEvt { get; set; }
+
+    private async Task ValueInputChange(ChangeEventArgs e)
+    {
+        string valor = e.Value.ToString();
+        ValorInput = valor;
+        await GetValueInputEvt.InvokeAsync(ValorInput);
+    }
+}
